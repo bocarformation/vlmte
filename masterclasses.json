@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "64ac97798d7b75af3536610f"
+  },
+  "name": "test zd",
+  "date": "2023-07-07",
+  "logo": "1689032569657-Les_Jardins_de_Gally__.pdf",
+  "support": "1689032569850-preÌsentation_LE_RELAIS.pdf",
+  "video": "1689032569885-PreÌsentation-les-E-du-paysages.pdf",
+  "createdAt": {
+    "$date": "2023-07-10T23:42:49.926Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-10T23:42:49.926Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64ac97a48d7b75af35366111"
+  },
+  "name": "test zd",
+  "date": "2023-07-07",
+  "logo": "1689032612777-Exemple_catalogue_partenaires_3.pdf",
+  "support": "1689032612810-preÌsentation_LE_RELAIS.pdf",
+  "video": "1689032612835-PreÌsentation_Vinci.pdf",
+  "createdAt": {
+    "$date": "2023-07-10T23:43:32.896Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-10T23:43:32.896Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64ad24e5d226658e225325e9"
+  },
+  "name": "Arsenio",
+  "date": "16-11-2021",
+  "logo": "1689068771827-Arsenio.png",
+  "support": "1689068771829-Arsenio-deck-Espaces-FR.pdf",
+  "video": "1689068771872-Arsenio_VLMTE_16_11_21.mp4",
+  "createdAt": {
+    "$date": "2023-07-11T09:46:13.370Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-11T09:46:13.370Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64ad3438df2e36b0458c09f6"
+  },
+  "name": "Bocar Edit",
+  "date": "16-11-2021",
+  "logo": "1689498001685-extramuros.png",
+  "support": "1689497462067-idVerde.pdf",
+  "video": "1689498001686-subsea7.mp4",
+  "createdAt": {
+    "$date": "2023-07-11T10:51:36.589Z"
+  },
+  "updatedAt": {
+    "$date": "2023-07-16T09:00:03.045Z"
+  },
+  "__v": 0
+}]
