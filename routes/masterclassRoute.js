@@ -21,7 +21,7 @@ router.post("/new",uploadS3.fields([{
     name: "video"
 }]),  AddMasterclass)
 
-router.put("/edit/:id",uploadS3.fields([{
+router.post("/edit/:id",uploadS3.fields([{
 
     name: "logo"
 
