@@ -1,3 +1,4 @@
+import CateMasterclass from "../models/CateMasterclassModel.js"
 import Masterclass from "../models/MasterclassModel.js"
 
 
@@ -36,7 +37,8 @@ await req.myFileName
         name: req.body.name,
         logo: req.myFileName[0],
         date: req.body.date,
-        video: req.myFileName[1]
+        video: req.myFileName[1],
+        category: req.body.category
     })
     }else  {
          masterclass = await new Masterclass({
@@ -45,7 +47,8 @@ await req.myFileName
         logo: req.myFileName[0],
         date: req.body.date,
         support: req.myFileName[1],
-        video: req.myFileName[2]
+        video: req.myFileName[2],
+        category: req.body.category
     })
     }
     await masterclass.save()
@@ -75,7 +78,8 @@ if(req.files.logo && req.files.support && req.files.video){
         logo: req.myFileName[0], 
         date: req.body.date,
         support: req.myFileName[1],
-        video: req.myFileName[2]
+        video: req.myFileName[2],
+        category: req.body.category
     }
 }
 
@@ -84,7 +88,8 @@ if(!req.files.logo && req.files.support && req.files.video){
         name: req.body.name, 
         date: req.body.date,
         support: req.myFileName[0],
-        video: req.myFileName[1]
+        video: req.myFileName[1],
+        category: req.body.category
     }
 }
 
@@ -93,7 +98,8 @@ if(req.files.logo && !req.files.support && req.files.video){
         name: req.body.name,
         logo: req.myFileName[0], 
         date: req.body.date,
-        video: req.myFileName[2]
+        video: req.myFileName[2],
+        category: req.body.category
     }
 }
 
@@ -103,6 +109,7 @@ if(req.files.logo && req.files.support && !req.files.video){
         logo: req.myFileName[0], 
         date: req.body.date,
         support: req.myFileName[1],
+        category: req.body.category
     }
 }
 
@@ -110,7 +117,8 @@ if(!req.files.logo && !req.files.support && req.files.video){
     masterclass = {
         name: req.body.name,
         date: req.body.date,
-        video: req.myFileName[0]
+        video: req.myFileName[0],
+        category: req.body.category
     }
 }
 
@@ -119,6 +127,7 @@ if(!req.files.logo && req.files.support && !req.files.video){
         name: req.body.name,
         date: req.body.date,
         support: req.myFileName[0],
+        category: req.body.category
     }
 }
 
@@ -127,7 +136,8 @@ if(req.files.logo && !req.files.support && !req.files.video){
         name: req.body.name,
         date: req.body.date,
         support: req.myFileName[0],
-        video: req.myFileName[1]
+        video: req.myFileName[1],
+        category: req.body.category
     }
 }
 
@@ -135,6 +145,7 @@ if(!req.files.logo && !req.files.support && !req.files.video){
     masterclass = {
         name: req.body.name,
         date: req.body.date,
+        category: req.body.category
     }
 }
 
@@ -185,4 +196,51 @@ export const StatsMasterclass = async (req, res) =>{
     }
 
     res.json(masterclass)
+}
+
+// ********** CATEGORIE ****************
+
+export const GetAllCategory = async (req, res) => {
+    const cat = await CateMasterclass.find().sort({name: 1})
+
+    if(!cat){
+        return res.json({message: "Aucune catégorie trouvée"})
+    }
+
+    res.json(cat)
+}
+
+
+export const AddCategory = async (req, res) => {
+
+    const name = req.body.name; 
+    console.log(name)
+if(!name || name === ""){
+   return  res.json({message: "Veuillez revoir votre saisie"})
+}
+
+    const category =  new CateMasterclass({
+        name: name
+    })
+
+    await category.save()
+
+    res.json({message: "Nouvelle catégorie ajoutée avec succès"})
+
+}
+
+
+export const DeleteCategory = async (req, res) => {
+    const {id} = req.params
+   
+    const checkCategory = await CateMasterclass.findById(id)
+
+    if(!checkCategory){
+        return res.json({message:"Aucune catégorie trouvée avec cet ID"})
+    }
+
+    await CateMasterclass.deleteOne({"_id": id})
+
+    res.json({message:"Catégorie supprimée avec succès"})
+
 }

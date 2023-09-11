@@ -19,6 +19,9 @@ support: {
 },
 video: {
     type: String
+},
+category: {
+    type: String
 }
 
 },{
